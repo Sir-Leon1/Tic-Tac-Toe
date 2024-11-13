@@ -1,0 +1,6 @@
+This package is intended to contain files and other resources related to the application's controllers.
+These files define the behavior and control logic of the application's user interface (UI) components,
+including handling user input, updating the UI, and coordinating between the view and the model.
+
+Sample Files:
+

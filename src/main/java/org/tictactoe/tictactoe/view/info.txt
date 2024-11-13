@@ -1,0 +1,12 @@
+This package is intended to contain files and other resources related to the user interface of the application.
+These files define the layout and structure of the application's graphical user interface (GUI) components.
+
+Sample Files:
+    UI_Components:
+        -> Package containing custom user interface components
+    LoginAndReg.java        -> Interface for login and registration
+    GameBoard.java          -> Interface for an active game
+    GameView.java           -> Home page viewed after login and after game play
+    WinPopup.java           -> Popup that is shown when a user wins the game
+    LoosePopup.java         -> Popup that is shown when a user loses the game
+    view.java               -> The main stage that houses the entire app.

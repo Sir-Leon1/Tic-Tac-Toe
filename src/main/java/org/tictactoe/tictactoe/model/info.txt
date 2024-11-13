@@ -1,0 +1,12 @@
+This package is intended to contain files and other resources related to the application's data model.
+These files define the structure and behavior of the application's data,
+including classes that represent entities, data access objects (DAOs), and business logic.
+
+Sample Files:
+    DataAccessObjects:
+        PlayerDAO.java    -> Interact with player info in the database
+        ScoreDAO.java     -> Interact with the score info in the database
+    Player.java     -> PLayer object
+    DatabaseDriver  ->  Handle all datanase connections
+    Model           -> Handle instance creation of the database driver to ensure single instance by all
+                requests.
