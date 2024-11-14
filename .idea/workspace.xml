@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b824f24c-effd-4889-aff0-cde7bf26085d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/tictactoe/TicTacToeApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/tictactoe/TicTacToeApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/tictactoe/tictactoe/view/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/tictactoe/tictactoe/view/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731501797552</updated>
       <workItem from="1731501798658" duration="10000" />
-      <workItem from="1731568221068" duration="15371000" />
+      <workItem from="1731568221068" duration="20278000" />
     </task>
     <servers />
   </component>

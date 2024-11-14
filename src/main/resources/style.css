@@ -1,13 +1,17 @@
 .grid-pane{
-    -fx-backnground-color: #b0bebe;
+    -fx-background-color: #333333;
 }
 .custom-button{
     -fx-background-color: red;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
 }
-
+.custom-separator{
+    -fx-background-color: red;
+    -fx-border-width: 2px;
+}
 .profile-image{
     -fx-background-radius: 50%;
     -fx-background-color: transparent;
@@ -19,6 +23,13 @@
 .username{
     -fx-font-size: 18px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
+    -fx-text-fill: white;
+    -fx-padding: 0 10px;
+}
+
+.high-score{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
     -fx-padding: 0 10px;
 }
