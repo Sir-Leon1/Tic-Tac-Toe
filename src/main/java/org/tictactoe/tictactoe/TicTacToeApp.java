@@ -14,7 +14,8 @@ public class TicTacToeApp extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         VBox mainLayout = new VBox();
-        Scene scene = new Scene(mainLayout, 800, 900);
+        Scene scene = new Scene(mainLayout, 600, 500);
+        stage.setResizable(false);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
