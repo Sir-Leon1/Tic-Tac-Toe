@@ -7,15 +7,15 @@ public class LoginController {
     private Stage stage;
     private LoginForm loginForm;
 
-    // Constructor receives the stage from the Main Application
+    // Constructor
     public LoginController(Stage stage) {
         this.stage = stage;
-        // Initialize the loginForm after passing the stage
+
         this.loginForm = new LoginForm(stage, this);
     }
 
     public void start() {
-        // Make sure the loginForm is initialized before calling show()
+
         if (loginForm != null) {
             loginForm.show();
         } else {
@@ -24,7 +24,7 @@ public class LoginController {
     }
 
     public void handleLogin(String username, String password) {
-        // Handle login logic here
+
         System.out.println("Logged in with username: " + username + " and password: " + password);
     }
 }

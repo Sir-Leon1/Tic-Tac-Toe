@@ -19,12 +19,12 @@ public class LoginForm {
     private Button loginButton;
     private Button switchToRegisterButton;
 
-    // Constructor initializes the login
+    // Constructor
     public LoginForm(Stage stage, LoginController controller) {
         this.stage = stage;
         this.controller = controller;
 
-        // Initialize UI components
+        // Initialize
         usernameField = new TextField();
         passwordField = new PasswordField();
         loginButton = new Button("Login");
@@ -39,8 +39,8 @@ public class LoginForm {
     }
 
     public void show() {
-        // Set scene with updated layout
-        stage.setScene(new Scene(createLoginForm(), 800, 600)); // Updated scene size
+
+        stage.setScene(new Scene(createLoginForm(), 800, 600));
         stage.show();
     }
 
@@ -49,15 +49,15 @@ public class LoginForm {
         ImageView imageView = new ImageView();
         try {
             imageView.setImage(new Image(getClass().getResource("/image/tictac.jpeg").toExternalForm()));
-            imageView.setFitHeight(650); // Set height to 500
+            imageView.setFitHeight(650);
             imageView.setFitWidth(550);
-            imageView.setPreserveRatio(false); // Preserve the aspect ratio for proper scaling
+            imageView.setPreserveRatio(false);
         } catch (NullPointerException e) {
             System.err.println("Image not found: " + e.getMessage());
         }
 
         // Create VBox for form fields
-        VBox formLayout = new VBox(15); // 15px spacing between elements
+        VBox formLayout = new VBox(15);
         formLayout.setAlignment(Pos.CENTER_LEFT);
         formLayout.setPadding(new Insets(20));
         formLayout.getChildren().addAll(
@@ -67,10 +67,10 @@ public class LoginForm {
         );
 
         // Create HBox for main layout
-        HBox mainLayout = new HBox(30); // 30px spacing between image and form
+        HBox mainLayout = new HBox(30);
         mainLayout.setPadding(new Insets(20));
         mainLayout.setAlignment(Pos.CENTER);
-        mainLayout.getChildren().addAll(imageView, formLayout); // Place image on the left and form on the right
+        mainLayout.getChildren().addAll(imageView, formLayout);
 
         return mainLayout;
     }
