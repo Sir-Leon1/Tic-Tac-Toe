@@ -1,23 +1,18 @@
 package org.tictactoe.tictactoe;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import org.tictactoe.tictactoe.controller.LoginController;
 
 public class TicTacToeApp extends Application {
+
     @Override
-    public void start(Stage stage) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        VBox mainLayout = new VBox();
-        Scene scene = new Scene(mainLayout, 800, 900);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage) {
+        // Create the LoginController
+        LoginController loginController = new LoginController(primaryStage);
+
+        // Start the LoginForm by calling the start method
+        loginController.start();
     }
 
     public static void main(String[] args) {
