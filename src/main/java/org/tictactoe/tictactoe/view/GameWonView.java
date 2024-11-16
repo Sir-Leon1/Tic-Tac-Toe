@@ -2,7 +2,6 @@ package org.tictactoe.tictactoe.view;
 
 
 import org.tictactoe.tictactoe.controller.GameWonController;
-
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;//eg. buttons and labels
 

@@ -4,9 +4,6 @@ import javafx.application.Application;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-
-import org.tictactoe.tictactoe.controller.GameOverController;
-import org.tictactoe.tictactoe.controller.GameWonController;
 import org.tictactoe.tictactoe.view.GameOverView;
 import org.tictactoe.tictactoe.view.GameWonView;
 
@@ -32,9 +29,10 @@ public class TicTacToeApp extends Application {
         mainLayout.getChildren().addAll(view1Pane, view2Pane);
 
         // Set up the scene and stage
-        Scene scene = new Scene(mainLayout, 400, 300);
+        Scene scene = new Scene(mainLayout, 600, 500);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Home");
+
         primaryStage.show();
 
 
