@@ -10,13 +10,18 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class GameView {
+    private View view;
+
+    public GameView(View view) {
+        this.view = view;
+    }
 
     public GridPane getContent() {
         GridPane root = new GridPane();
         root.setVgap(10);
         root.setHgap(10);
         root.setPadding(new Insets(10, 10, 10, 10));
-        root.getStyleClass().add("grid-pane");
+        root.getStyleClass().add("layout");
 
         // Adding profile image
         Image image = new Image(getClass().getResource("/profile.png").toExternalForm());
@@ -40,12 +45,12 @@ public class GameView {
         Button button = new Button("New Game");
         button.getStyleClass().add("custom-button");
         button.setOnAction(e -> {
-            System.out.println("Hello, World!");
+            view.showGameBoardScene();
         });
 
         //High score Label
         Label highScore = new Label("HighScore: ");
-        highScore.getStyleClass().add("high-score");
+        highScore.getStyleClass().add("text");
 
 
         //Reset Button

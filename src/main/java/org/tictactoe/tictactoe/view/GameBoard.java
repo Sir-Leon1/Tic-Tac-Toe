@@ -27,6 +27,7 @@ public class GameBoard {
     public GameBoard() {
         this.app = app;
         layout = new BorderPane();
+        layout.getStyleClass().add("layout");
         layout.setPadding(new Insets(15));
 
         //Top section with quit, label, score
@@ -34,6 +35,7 @@ public class GameBoard {
         topSection.setAlignment(Pos.CENTER);
 
         quitButton = new Button("Quit");
+        quitButton.getStyleClass().add("custom-button");
         turnLabel = new Label("Your Turn");
         turnLabel.setFont(Font.font(16));
         scoreLabel = new Label("Score - You: 0 Computer: 0");

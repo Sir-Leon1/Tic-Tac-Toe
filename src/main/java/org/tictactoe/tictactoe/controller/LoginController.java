@@ -2,29 +2,19 @@ package org.tictactoe.tictactoe.controller;
 
 import javafx.stage.Stage;
 import org.tictactoe.tictactoe.view.LoginForm;
+import org.tictactoe.tictactoe.view.View;
 
 public class LoginController {
-    private Stage stage;
     private LoginForm loginForm;
+    private View view;
 
     // Constructor
-    public LoginController(Stage stage) {
-        this.stage = stage;
-
-        this.loginForm = new LoginForm(stage, this);
-    }
-
-    public void start() {
-
-        if (loginForm != null) {
-            loginForm.show();
-        } else {
-            System.out.println("Login form is not initialized.");
-        }
+    public LoginController(View view) {
+        this.view = view;
     }
 
     public void handleLogin(String username, String password) {
-
+        view.showHomeScene();
         System.out.println("Logged in with username: " + username + " and password: " + password);
     }
 }

@@ -18,11 +18,13 @@ public class LoginForm {
     private PasswordField passwordField;
     private Button loginButton;
     private Button switchToRegisterButton;
+    private LoginController loginController;
+    private View view;
 
     // Constructor
-    public LoginForm(Stage stage, LoginController controller) {
-        this.stage = stage;
-        this.controller = controller;
+    public LoginForm(View view) {
+        this.view = view;
+        loginController = new LoginController(view);
 
         // Initialize
         usernameField = new TextField();
@@ -34,14 +36,8 @@ public class LoginForm {
         loginButton.setOnAction(event -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
-            controller.handleLogin(username, password);
+            loginController.handleLogin(username, password);
         });
-    }
-
-    public void show() {
-
-        stage.setScene(new Scene(createLoginForm(), 800, 600));
-        stage.show();
     }
 
     public HBox createLoginForm() {
@@ -68,6 +64,7 @@ public class LoginForm {
 
         // Create HBox for main layout
         HBox mainLayout = new HBox(30);
+        mainLayout.getStyleClass().add("layout");
         mainLayout.setPadding(new Insets(20));
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.getChildren().addAll(imageView, formLayout);

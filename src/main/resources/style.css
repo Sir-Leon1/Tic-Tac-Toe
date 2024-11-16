@@ -1,4 +1,4 @@
-.grid-pane{
+.layout{
     -fx-background-color: #333333;
 }
 .custom-button{
@@ -27,7 +27,7 @@
     -fx-padding: 0 10px;
 }
 
-.high-score{
+.text{
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
