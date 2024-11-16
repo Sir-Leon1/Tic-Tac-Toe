@@ -2,12 +2,17 @@ package org.tictactoe.tictactoe.controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import org.tictactoe.tictactoe.view.View;
+
 import java.util.Optional;
 
 public class GameOverController {
+    private View view;
 
     // Method to show the dialog - this is called when the button is clicked
-    public void showDialog() {
+    public void showDialog(View view) {
+        this.view = view;
+
         // Create an alert dialog of type CONFIRMATION to allow Yes/No options
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
@@ -30,11 +35,13 @@ public class GameOverController {
         if (result.isPresent()) {
             if (result.get() == yesButton) {
                 System.out.println("User chose to Try Again!");
-                // Logic for retrying the game can go here
+                //TODO : Alteranete showing a new instance versus showing the currently running instance.
+                view.showGameBoardScene();
             } else if (result.get() == quitButton) {
                 System.out.println("User chose to Quit the game!");
-                // Logic for quitting the application
-                System.exit(0); // Exit the app
+                //TODO : Destroy old instance of the gameboard scene
+                //TODO: show current instance of the home scene
+                view.showHomeScene();
             }
         }
     }

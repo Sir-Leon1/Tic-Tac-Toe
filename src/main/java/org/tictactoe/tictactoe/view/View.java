@@ -20,12 +20,13 @@ public class View {
 
     public void showGameBoardScene() {
         gameboard = new GameBoard();
-        gameboardController = new GameBoardController(gameboard);
-        stage.setScene(new Scene(gameboard.getLayout(), 800, 900));
-        stage.setTitle("Tic Tac Toe");
+        gameboardController = new GameBoardController(gameboard, this);
+        scene = new Scene(gameboard.getLayout(), 800, 900);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("Tic Tac Toe GameBoard");
         stage.show();
     }
-
     public void showLoginScene() {
         loginForm = new LoginForm(this);
         scene = new Scene(loginForm.createLoginForm(), 800, 900);
@@ -40,7 +41,7 @@ public class View {
         scene = new Scene(gameView.getContent(), 800, 900);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("TicTacToe Home");
+        stage.setTitle("Tic Tac Toe Home");
         stage.show();
     }
 

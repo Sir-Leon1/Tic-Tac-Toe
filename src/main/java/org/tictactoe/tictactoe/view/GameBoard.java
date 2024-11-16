@@ -27,8 +27,9 @@ public class GameBoard {
     public GameBoard() {
         this.app = app;
         layout = new BorderPane();
-        layout.getStyleClass().add("layout");
         layout.setPadding(new Insets(15));
+        layout.getStyleClass().add("layout");
+
 
         //Top section with quit, label, score
         HBox topSection = new HBox(20);
