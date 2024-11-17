@@ -1,45 +1,25 @@
 package org.tictactoe.tictactoe;
 
 import javafx.application.Application;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-
-import org.tictactoe.tictactoe.view.GameOverView;
-import org.tictactoe.tictactoe.view.GameWonView;
-
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.tictactoe.tictactoe.view.GameBoard;
+import org.tictactoe.tictactoe.view.View;
 
+import java.io.IOException;
 
-// This is the Main Application class - it starts everything
 public class TicTacToeApp extends Application {
+    private Stage stage;
+    private View view;
+
     @Override
-    public void start(Stage primaryStage) {
-
-        // Create instances of the view classes
-        GameWonView view1 = new GameWonView();
-        GameOverView view2 = new GameOverView();
-
-        // Get the panes from the view classes
-        VBox view1Pane = view1.getView();
-        HBox view2Pane = view2.getView();
-
-        // Combine them in a single layout
-        VBox mainLayout = new VBox(20); // Vertical layout with spacing
-        mainLayout.getChildren().addAll(view1Pane, view2Pane);
-
-        // Set up the scene and stage
-        Scene scene = new Scene(mainLayout, 600, 500);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Home");
-
-        primaryStage.show();
-
+    public void start(Stage stage) throws IOException {
+        this.stage = stage;
+        view = new View(stage);
 
     }
 
     public static void main(String[] args) {
-        // Launch the JavaFX application
-        launch(args);
+        launch();
     }
-} 
+}
