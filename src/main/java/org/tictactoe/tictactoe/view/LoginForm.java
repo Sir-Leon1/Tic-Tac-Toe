@@ -49,8 +49,8 @@ public class LoginForm {
         ImageView imageView = new ImageView();
         try {
             imageView.setImage(new Image(getClass().getResource("/image/tictac.jpeg").toExternalForm()));
-            imageView.setFitHeight(650);
-            imageView.setFitWidth(550);
+            imageView.setFitHeight(550);
+            imageView.setFitWidth(500);
             imageView.setPreserveRatio(false);
         } catch (NullPointerException e) {
             System.err.println("Image not found: " + e.getMessage());
