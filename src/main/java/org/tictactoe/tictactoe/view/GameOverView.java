@@ -2,7 +2,6 @@ package org.tictactoe.tictactoe.view;
 
 
 import org.tictactoe.tictactoe.controller.GameOverController;
-
 import javafx.scene.layout.HBox;
 import javafx.scene.control.*;//eg. buttons and labels
 
