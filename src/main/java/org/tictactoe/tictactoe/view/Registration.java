@@ -7,7 +7,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -49,7 +48,6 @@ public class Registration {
             String email = emailField.getText();
             String password = passwordField.getText();
 
-            // Delegate handling to the controller
             controller.handleRegistration(firstName, secondName, email, password);
         });
     }

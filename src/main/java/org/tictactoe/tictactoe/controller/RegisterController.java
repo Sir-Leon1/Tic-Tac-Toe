@@ -33,10 +33,13 @@ public class RegisterController {
             return;
         }
 
-        // Simulate successful registration
+        //  successful registration
         System.out.println("Registered with: First Name = " + firstName
                 + ", Last Name = " + secondName
                 + ", Email = " + email
                 + ", Password = " + password);
+    }
+
+    public void setLoginController(LoginController loginController) {
     }
 }

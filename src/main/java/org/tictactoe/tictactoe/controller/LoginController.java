@@ -2,49 +2,37 @@ package org.tictactoe.tictactoe.controller;
 
 import javafx.stage.Stage;
 import org.tictactoe.tictactoe.view.LoginForm;
-import org.tictactoe.tictactoe.view.Registration;
 
 public class LoginController {
     private final Stage stage;
-    private final LoginForm loginForm;
-    private Registration registrationView;
+    private final LoginForm loginView;
+    private RegisterController registrationController;
 
     public LoginController(Stage stage) {
         this.stage = stage;
-        this.loginForm = new LoginForm(stage, this);
+        this.loginView = new LoginForm(stage, this);
     }
 
     public void start() {
-        if (loginForm != null) {
-            loginForm.show();
-        } else {
-            System.err.println("Error: Login form is not initialized.");
-        }
-    }
-
-    public void handleLogin(String username, String password) {
-        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
-            System.err.println("Error: Username and password must not be empty.");
-            return;
-        }
-
-        System.out.println("Logged in with username: " + username);
+        loginView.show();
     }
 
     public void setRegistrationController(RegisterController registrationController) {
-        if (registrationController != null) {
-            this.registrationView = new Registration(stage, registrationController);
-            System.out.println("Registration controller linked successfully.");
+        this.registrationController = registrationController;
+    }
+
+    public void handleLogin(String username, String password) {
+
+        if (username.isEmpty() || password.isEmpty()) {
+            System.err.println("Username and password must not be empty.");
         } else {
-            System.err.println("Error: Registration controller is null.");
+            System.out.println("Login successful for user: " + username);
         }
     }
 
-    public void handleRegister() {
-        if (registrationView != null) {
-            registrationView.show();
-        } else {
-            System.err.println("Error: Registration view is not initialized.");
+    public void showRegistrationScreen() {
+        if (registrationController != null) {
+            registrationController.start();
         }
     }
 }

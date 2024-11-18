@@ -9,13 +9,16 @@ public class TicTacToeApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Create the LoginController
+        // Create the controllers
         LoginController loginController = new LoginController(primaryStage);
         RegisterController registrationController = new RegisterController(primaryStage);
-        // Start the LoginForm by calling the start method
-        loginController.setRegistrationController(registrationController);
-        loginController.start();
 
+
+        loginController.setRegistrationController(registrationController);
+        registrationController.setLoginController(loginController);
+
+
+        loginController.start();
     }
 
     public static void main(String[] args) {
