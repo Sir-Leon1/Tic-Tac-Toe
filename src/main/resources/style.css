@@ -1,0 +1,37 @@
+.layout{
+    -fx-background-color: #333333;
+}
+.custom-button{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
+
+}
+
+.custom-separator{
+    -fx-background-color: red;
+    -fx-border-width: 2px;
+}
+.profile-image{
+    -fx-background-radius: 50%;
+    -fx-background-color: transparent;
+    -fx-border-radius: 50%;
+    -fx-border-color: red;
+    -fx-border-width: 3px;
+}
+
+.username{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 10px;
+}
+
+.text{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 10px;
+}

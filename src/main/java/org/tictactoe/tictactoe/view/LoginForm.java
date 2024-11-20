@@ -17,36 +17,30 @@ public class LoginForm {
     private TextField usernameField;
     private PasswordField passwordField;
     private Button loginButton;
-    private Button switchToRegisterButton;
+    private Button RegisterButton;
+    private LoginController loginController;
+    private View view;
 
     // Constructor
-    public LoginForm(Stage stage, LoginController controller) {
-        this.stage = stage;
-        this.controller = controller;
+    public LoginForm(View view) {
+        this.view = view;
+        loginController = new LoginController(view);
 
-        // Initialize fields
+        // Initialize
         usernameField = new TextField();
-        usernameField.setPromptText("Enter your username");
         passwordField = new PasswordField();
-        passwordField.setPromptText("Enter your password");
         loginButton = new Button("Login");
-        switchToRegisterButton = new Button("Switch to Register");
+        RegisterButton = new Button("Register");
 
-        // Set login button action
+        // Set up the login button action
         loginButton.setOnAction(event -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
-            controller.handleLogin(username, password);
+            loginController.handleLogin(username, password);
         });
-
-        // Set action for the switch to register button
-        switchToRegisterButton.setOnAction(event -> controller.showRegistrationScreen());
-    }
-
-    public void show() {
-        stage.setScene(new Scene(createLoginForm(), 800, 600));
-        stage.setTitle("Tic Tac Toe - Login");
-        stage.show();
+        RegisterButton.setOnAction(event -> {
+            view.showRegistrationScene();
+        });
     }
 
     public HBox createLoginForm() {
@@ -54,25 +48,26 @@ public class LoginForm {
         ImageView imageView = new ImageView();
         try {
             imageView.setImage(new Image(getClass().getResource("/image/tictac.jpeg").toExternalForm()));
-            imageView.setFitHeight(300);
-            imageView.setFitWidth(300);
-            imageView.setPreserveRatio(true);
+            imageView.setFitHeight(650);
+            imageView.setFitWidth(550);
+            imageView.setPreserveRatio(false);
         } catch (NullPointerException e) {
             System.err.println("Image not found: " + e.getMessage());
         }
 
-        // Create VBox
+        // Create VBox for form fields
         VBox formLayout = new VBox(15);
         formLayout.setAlignment(Pos.CENTER_LEFT);
         formLayout.setPadding(new Insets(20));
         formLayout.getChildren().addAll(
                 new Label("Username:"), usernameField,
                 new Label("Password:"), passwordField,
-                loginButton, switchToRegisterButton
+                loginButton, RegisterButton
         );
 
         // Create HBox for main layout
         HBox mainLayout = new HBox(30);
+        mainLayout.getStyleClass().add("layout");
         mainLayout.setPadding(new Insets(20));
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.getChildren().addAll(imageView, formLayout);
