@@ -1,5 +1,6 @@
 package org.tictactoe.tictactoe.model;
 
+//Singleton approach
 public class Model {
     private static Model model;
     private static DatabaseDriver databaseDriver;
