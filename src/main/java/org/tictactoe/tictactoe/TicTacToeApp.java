@@ -8,6 +8,7 @@ import org.tictactoe.tictactoe.view.View;
 
 import java.io.IOException;
 
+
 public class TicTacToeApp extends Application {
     private Stage stage;
     private View view;
