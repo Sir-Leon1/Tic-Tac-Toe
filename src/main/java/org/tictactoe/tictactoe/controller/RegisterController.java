@@ -1,11 +1,6 @@
 package org.tictactoe.tictactoe.controller;
 
-import javafx.stage.Stage;
-import org.tictactoe.tictactoe.view.Registration;
 import org.tictactoe.tictactoe.view.View;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class RegisterController {
 
@@ -18,9 +13,9 @@ public class RegisterController {
 
     }
 
-  public void handleRegistration(String firstName, String secondName, String email, String password) {
+  public void handleRegistration(String firstName, String secondName, String email, String userName, String password) {
 
-      view.showHomeScene();
+      view.showLoginScene();
       System.out.println("New User Registered");
   }
 

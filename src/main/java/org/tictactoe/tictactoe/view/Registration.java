@@ -22,6 +22,7 @@ public class Registration {
     private TextField firstNameField;
     private TextField secondNameField;
     private TextField emailField;
+    private TextField userNameField;
     private PasswordField passwordField;
     private Button registerButton;
     private View view;
@@ -41,6 +42,9 @@ public class Registration {
         emailField = new TextField();
         emailField.setPromptText("Email");
 
+        userNameField = new TextField();
+        userNameField.setPromptText("UserName");
+
         passwordField = new PasswordField();
         passwordField.setPromptText("Password");
 
@@ -51,9 +55,10 @@ public class Registration {
             String firstName = firstNameField.getText();
             String secondName = secondNameField.getText();
             String email = emailField.getText();
+            String userName = userNameField.getText();
             String password = passwordField.getText();
 
-            controller.handleRegistration(firstName, secondName, email, password);
+            controller.handleRegistration(firstName, secondName, email,userName, password);
         });
     }
 
@@ -86,13 +91,14 @@ public class Registration {
                 new Label("First Name:"), firstNameField,
                 new Label("Second Name:"), secondNameField,
                 new Label("Email:"), emailField,
+                new Label("UserName:"),userNameField,
                 new Label("Password:"), passwordField,
                 registerButton
         );
 
         // Create HBox for main layout
-        HBox mainLayout = new HBox(30);
-        mainLayout.setPadding(new Insets(20));
+        HBox mainLayout = new HBox(50);
+        mainLayout.setPadding(new Insets(10));
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.getChildren().addAll(imageView, formLayout);
 

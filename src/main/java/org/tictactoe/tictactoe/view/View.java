@@ -39,7 +39,7 @@ public class View {
 
     public void showRegistrationScene() {
         registration = new Registration(this);
-        scene = new Scene(registration.createRegistration(), 800, 900);
+        scene = new Scene(registration.createRegistration(), 900, 1000);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Tic Tac Toe Registration");
