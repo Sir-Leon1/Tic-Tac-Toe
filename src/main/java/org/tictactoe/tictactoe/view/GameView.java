@@ -7,13 +7,20 @@ import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import org.tictactoe.tictactoe.controller.GameViewController;
 
 public class GameView {
     private View view;
+    private GameBoard gameBoard;
+    private GameViewController gameViewController;
+    private Button newGameButton, resetButton, logOutButton;
 
     public GameView(View view) {
         this.view = view;
+        this.gameBoard = new GameBoard();
+        this.newGameButton = createNewGameButton();
+        this.resetButton = createResetButton();
+        this.logOutButton = createLogOutButton();
     }
 
     public GridPane getContent() {
@@ -30,10 +37,11 @@ public class GameView {
         profileView.setFitHeight(100);
         profileView.setFitWidth(100);
 
-        //Username Label
+        // Username Label
         Label username = new Label("Username: ");
         username.getStyleClass().add("username");
-        //friends Label
+
+        // Friends Label
         Label friends = new Label("Friends: ");
         friends.getStyleClass().add("username");
 
@@ -41,36 +49,49 @@ public class GameView {
         separator.getStyleClass().add("custom-separator");
         separator.setPrefWidth(Double.MAX_VALUE);
 
-        //NewGame Button
-        Button button = new Button("New Game");
-        button.getStyleClass().add("custom-button");
-        button.setOnAction(e -> {
-            view.showGameBoardScene();
-        });
-
-        //High score Label
+        // High score Label
         Label highScore = new Label("HighScore: ");
         highScore.getStyleClass().add("text");
-
-
-        //Reset Button
-        Button resetButton = new Button("Reset");
-        resetButton.getStyleClass().add("custom-button");
-
-        //Log Out Button
-        Button logOutButton = new Button("LogOut");
-        logOutButton.getStyleClass().add("custom-button");
 
 
         root.add(profileView, 0, 0, 2, 2);
         root.add(username, 2, 0);
         root.add(friends, 2, 1);
-        root.add(separator,0,2, 4,1);
-        root.add(button, 0,3);
-        root.add(highScore, 0,4);
-        root.add(resetButton, 0,5);
+        root.add(separator, 0, 2, 4, 1);
+        root.add(newGameButton, 0, 3);
+        root.add(highScore, 0, 4);
+        root.add(resetButton, 0, 5);
         root.add(logOutButton, 0, 6);
 
         return root;
+    }
+
+    private Button createNewGameButton() {
+        Button button = new Button("New Game");
+        button.getStyleClass().add("custom-button");
+        return button;
+    }
+    private Button createResetButton() {
+        Button button = new Button("Reset");
+        button.getStyleClass().add("custom-button");
+        return button;
+    }
+    private Button createLogOutButton() {
+        Button button = new Button("Log Out");
+        button.getStyleClass().add("custom-button");
+        return button;
+    }
+    public Button getNewGameButton() {
+        return newGameButton;
+    }
+    public Button getResetButton() {
+        return resetButton;
+    }
+
+    public Button getLogOutButton() {
+        return logOutButton;
+    }
+    public View getView() {
+        return view;
     }
 }

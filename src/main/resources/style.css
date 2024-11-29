@@ -9,6 +9,12 @@
     -fx-padding: 10px 20px;
 
 }
+.custom-button:hover{
+    -fx-background-color: #45a049;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+
+}
 .custom-separator{
     -fx-background-color: red;
     -fx-border-width: 2px;
