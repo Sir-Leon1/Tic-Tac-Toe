@@ -6,26 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class PlayerDAO {
-    private final String url = "jdbc:mysql://localhost:3306/GameAppDB";
-    private final String user = "root";
-    private final String password = "your_password";
 
-    // Method to connect to the database
-    private Connection connect() {
-        try {
-            return DriverManager.getConnection(url, user, password);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    private Connection connect;
+
+    public PlayerDAO() {
+        this.connect = Model.getInstance().getDatabaseDriver().connect();
     }
 
     // Method to save a user to the database
     public boolean saveUser(User user) {
         String query = "INSERT INTO Users (name, email, password, highscore) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = connect();
+        try (Connection conn = connect;
 
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
@@ -47,7 +39,7 @@ public class PlayerDAO {
     public User getUserByEmail(String email) {
         String query = "SELECT * FROM Users WHERE email = ?";
 
-        try (Connection conn = connect();
+        try (Connection conn = connect;
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, email);
