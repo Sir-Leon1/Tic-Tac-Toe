@@ -17,7 +17,7 @@ public class LoginForm {
     private TextField usernameField;
     private PasswordField passwordField;
     private Button loginButton;
-    private Button switchToRegisterButton;
+    private Button RegisterButton;
     private LoginController loginController;
     private View view;
 
@@ -30,13 +30,16 @@ public class LoginForm {
         usernameField = new TextField();
         passwordField = new PasswordField();
         loginButton = new Button("Login");
-        switchToRegisterButton = new Button("Register");
+        RegisterButton = new Button("Register");
 
         // Set up the login button action
         loginButton.setOnAction(event -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
             loginController.handleLogin(username, password);
+        });
+        RegisterButton.setOnAction(event -> {
+            view.showRegistrationScene();
         });
     }
 
@@ -59,7 +62,7 @@ public class LoginForm {
         formLayout.getChildren().addAll(
                 new Label("Username:"), usernameField,
                 new Label("Password:"), passwordField,
-                loginButton, switchToRegisterButton
+                loginButton, RegisterButton
         );
 
         // Create HBox for main layout
