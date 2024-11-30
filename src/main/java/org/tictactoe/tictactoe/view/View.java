@@ -3,6 +3,7 @@ package org.tictactoe.tictactoe.view;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.tictactoe.tictactoe.controller.GameBoardController;
+import org.tictactoe.tictactoe.controller.GameViewController;
 
 public class View {
     private Stage stage;
@@ -12,6 +13,7 @@ public class View {
     private Registration registration;
     private Scene scene;
     private GameBoardController gameboardController;
+    private GameViewController gameViewController;
 
     public View(Stage stage) {
         this.stage = stage;
@@ -48,6 +50,7 @@ public class View {
 
     public void showHomeScene() {
         gameView = new GameView(this);
+        gameViewController = new GameViewController(gameView);
         scene = new Scene(gameView.getContent(), 800, 900);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         stage.setScene(scene);
