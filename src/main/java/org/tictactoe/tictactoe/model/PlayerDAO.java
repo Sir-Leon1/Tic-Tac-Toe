@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerDAO {
 
@@ -13,7 +15,7 @@ public class PlayerDAO {
         this.connect = Model.getInstance().getDatabaseDriver().connect();
     }
 
-    // Method to save a user to the database
+    // Method to save a new user to the database during registration
     public boolean saveUser(User user) {
         String query = "INSERT INTO Users (name, email, password, highscore) VALUES (?, ?, ?, ?)";
 
@@ -59,5 +61,32 @@ public class PlayerDAO {
         }
         return null;
     }
+
+    // Method to retrieve all users
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users";
+
+        try (Connection conn = connect;
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                User user = new User();
+                user.setUsername(rs.getString("firstname"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setHighscore(rs.getInt("highScore"));
+                users.add(user);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+    //TODO : Method to update player score after a win
+    //TODO : Method to reset a players score to 0
+    //TODO : Method to retrieve all users
 }
 

@@ -14,6 +14,7 @@ public class GameView {
     private GameBoard gameBoard;
     private GameViewController gameViewController;
     private Button newGameButton, resetButton, logOutButton;
+    //TODO : variable to hold current players information
 
     public GameView(View view) {
         this.view = view;

@@ -17,7 +17,6 @@ public class View {
 
     public View(Stage stage) {
         this.stage = stage;
-        //todo: Ensure the first method called is show login page
         showLoginScene();
     }
 
