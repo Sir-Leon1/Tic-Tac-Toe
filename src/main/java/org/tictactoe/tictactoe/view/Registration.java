@@ -35,20 +35,30 @@ public class Registration {
         // Initialize form fields
         firstNameField = new TextField();
         firstNameField.setPromptText("First Name");
+        firstNameField.getStyleClass().add("text");
 
         secondNameField = new TextField();
         secondNameField.setPromptText("Second Name");
+        secondNameField.getStyleClass().add("text");
 
         emailField = new TextField();
         emailField.setPromptText("Email");
+        emailField.getStyleClass().add("text");
 
         userNameField = new TextField();
         userNameField.setPromptText("UserName");
+        userNameField.getStyleClass().add("text");
 
         passwordField = new PasswordField();
         passwordField.setPromptText("Password");
+        passwordField.getStyleClass().add("username");
 
         registerButton = new Button("Register");
+        registerButton.getStyleClass().add("custom-button");
+
+    //to make the registration button have the same width wi the fields
+        registerButton.prefWidthProperty().bind(firstNameField.widthProperty());
+
 
         // Set action for the register button
         registerButton.setOnAction(event -> {
@@ -58,9 +68,10 @@ public class Registration {
             String userName = userNameField.getText();
             String password = passwordField.getText();
 
-            controller.handleRegistration(firstName, secondName, email,userName, password);
+            controller.handleRegistration(firstName, secondName, email, userName, password);
         });
     }
+
 
     public void show() {
         stage.setScene(new Scene(createRegistration(), 800, 600));
@@ -83,6 +94,13 @@ public class Registration {
             System.err.println("Image not found: " + e.getMessage());
         }
 
+        // Labels with explicit styles
+        Label usernameLabel = new Label("Username:");
+        usernameLabel.setStyle("-fx-text-fill: white;");
+        Label passwordLabel = new Label("Password:");
+        passwordLabel.setStyle("-fx-text-fill: white;");
+
+
         // Create VBox for form fields
         VBox formLayout = new VBox(15);
         formLayout.setAlignment(Pos.CENTER_LEFT);
@@ -98,6 +116,7 @@ public class Registration {
 
         // Create HBox for main layout
         HBox mainLayout = new HBox(50);
+        mainLayout.getStyleClass().add("layout");
         mainLayout.setPadding(new Insets(10));
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.getChildren().addAll(imageView, formLayout);

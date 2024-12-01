@@ -30,7 +30,9 @@ public class LoginForm {
         usernameField = new TextField();
         passwordField = new PasswordField();
         loginButton = new Button("Login");
+        loginButton.getStyleClass().add("custom-button");
         RegisterButton = new Button("Register");
+        RegisterButton.getStyleClass().add("custom-button");
 
         // Set up the login button action
         loginButton.setOnAction(event -> {
@@ -55,13 +57,23 @@ public class LoginForm {
             System.err.println("Image not found: " + e.getMessage());
         }
 
+        // Labels with explicit styles
+        Label usernameLabel = new Label("Username:");
+        usernameLabel.setStyle("-fx-text-fill: white;");
+        Label passwordLabel = new Label("Password:");
+        passwordLabel.setStyle("-fx-text-fill: white;");
+
+        // make button have the same width to text fields
+        loginButton.prefWidthProperty().bind(usernameField.widthProperty());
+        RegisterButton.prefWidthProperty().bind(usernameField.widthProperty());
+
         // Create VBox for form fields
         VBox formLayout = new VBox(15);
         formLayout.setAlignment(Pos.CENTER_LEFT);
         formLayout.setPadding(new Insets(20));
         formLayout.getChildren().addAll(
-                new Label("Username:"), usernameField,
-                new Label("Password:"), passwordField,
+                usernameLabel, usernameField,
+                passwordLabel, passwordField,
                 loginButton, RegisterButton
         );
 
