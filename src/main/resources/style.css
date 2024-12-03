@@ -7,6 +7,9 @@
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
     -fx-padding: 10px 20px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 150px;
+    -fx-margin: 10px;
 
 }
 .custom-button:hover{
