@@ -24,19 +24,23 @@ public class GameBoard {
     private boolean isPlayerTurn = true;
     private Random random = new Random();
 
-    public GameBoard() {
+    public GameBoard () {
         this.app = app;
         layout = new BorderPane();
         layout.setPadding(new Insets(15));
+        layout.getStyleClass().add("layout");
+
 
         //Top section with quit, label, score
         HBox topSection = new HBox(20);
         topSection.setAlignment(Pos.CENTER);
 
         quitButton = new Button("Quit");
+        quitButton.getStyleClass().add("custom-button");
         turnLabel = new Label("Your Turn");
         turnLabel.setFont(Font.font(16));
         scoreLabel = new Label("Score - You: 0 Computer: 0");
+        scoreLabel.getStyleClass().add("text");
         scoreLabel.setFont(Font.font(16));
 
         topSection.getChildren().addAll(quitButton, turnLabel, scoreLabel);

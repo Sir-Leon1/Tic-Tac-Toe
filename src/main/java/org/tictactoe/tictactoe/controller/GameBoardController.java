@@ -3,17 +3,22 @@ package org.tictactoe.tictactoe.controller;
 import org.tictactoe.tictactoe.view.GameBoard;
 
 import javafx.scene.control.Button;
+import org.tictactoe.tictactoe.view.View;
 
 public class GameBoardController {
-    private GameBoard view;
+    private GameBoard gameBoard;
+    private Button quitButton;
+    private View view;
+    private GameOverController gameOverController;
 
-    public GameBoardController(GameBoard view) {
+    public GameBoardController(GameBoard gameBoard, View view) {
+        this.gameBoard = gameBoard;
         this.view = view;
         initializeController();
     }
 
     private void initializeController() {
-        Button[][] board = view.getBoardButtons();
+        Button[][] board = gameBoard.getBoardButtons();
 
         //Add click handlers for all board buttons
         for (int i = 0; i < 3; i++) {
@@ -24,7 +29,9 @@ public class GameBoardController {
             }
         }
         //todo : setup an action listener for the quit button
-        view.getQuitButton();
+        quitButton = gameBoard.getQuitButton();
+        gameOverController = new GameOverController();
+        quitButton.setOnAction(e -> gameOverController.showDialog(view));
 
     }
 
@@ -32,7 +39,7 @@ public class GameBoardController {
         makePlayerMove(row, col);
     }
     private void  makePlayerMove(int row, int col) {
-        view.getBoardButtons()[row][col].setText("X");
+        gameBoard.getBoardButtons()[row][col].setText("X");
     }
     private void makeComputerMove() {}
 
